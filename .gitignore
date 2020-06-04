@@ -1,7 +1,8 @@
-account.exe
+*.exe
 .vscode
 
 config.json
 .vscode
 micro.sh
 run.sh
+

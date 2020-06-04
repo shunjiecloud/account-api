@@ -4,9 +4,8 @@ import (
 	"log"
 
 	"github.com/micro/go-micro/v2/web"
-	"github.com/shunjiecloud/account/models"
-	"github.com/shunjiecloud/account/modules"
-	"github.com/shunjiecloud/account/routers"
+	"github.com/shunjiecloud/account-api/modules"
+	"github.com/shunjiecloud/account-api/routers"
 )
 
 func main() {
@@ -20,9 +19,6 @@ func main() {
 
 	//  register web handler
 	webSrv.Handle("/", routers.InitRouter())
-
-	//  init db
-	models.InitTables(modules.ModuleContext.DefaultDB)
 
 	//  init
 	if err := webSrv.Init(); err != nil {
