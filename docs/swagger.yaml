@@ -1,0 +1,16 @@
+basePath: /
+host: api.shunjiecloud.com
+info:
+  contact:
+    email: zhou_shengjie@outlook.com
+    name: zhoushengjie
+    url: https://www.shunjiecloud.com
+  description: 瞬捷云 account-api
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  termsOfService: https://www.shunjiecloud.com
+  title: 瞬捷云账号服务
+  version: "1.0"
+paths: {}
+swagger: "2.0"

@@ -1,0 +1,21 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "瞬捷云 account-api",
+        "title": "瞬捷云账号服务",
+        "termsOfService": "https://www.shunjiecloud.com",
+        "contact": {
+            "name": "zhoushengjie",
+            "url": "https://www.shunjiecloud.com",
+            "email": "zhou_shengjie@outlook.com"
+        },
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        },
+        "version": "1.0"
+    },
+    "host": "api.shunjiecloud.com",
+    "basePath": "/",
+    "paths": {}
+}
