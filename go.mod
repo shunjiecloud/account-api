@@ -12,7 +12,7 @@ require (
 	github.com/go-sql-driver/mysql v1.5.0 // indirect
 	github.com/mailru/easyjson v0.7.1 // indirect
 	github.com/micro/go-micro/v2 v2.8.0
-	github.com/shunjiecloud-proto/account v0.0.0-20200604145954-77c2493c36ea
+	github.com/shunjiecloud-proto/account v0.0.0-20200605190946-65e124a765a4
 	github.com/shunjiecloud/pkg v0.0.0-20200602063315-4f7969972c9f
 	github.com/swaggo/files v0.0.0-20190704085106-630677cd5c14
 	github.com/swaggo/gin-swagger v1.2.0

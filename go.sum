@@ -460,8 +460,8 @@ github.com/sacloud/libsacloud v1.26.1/go.mod h1:79ZwATmHLIFZIMd7sxA3LwzVy/B77uj3
 github.com/satori/go.uuid v1.2.0/go.mod h1:dA0hQrYB0VpLJoorglMZABFdXlWrHn1NEOzdhQKdks0=
 github.com/sergi/go-diff v1.1.0 h1:we8PVUC3FE2uYfodKH/nBHMSetSfHDR6scGdBi+erh0=
 github.com/sergi/go-diff v1.1.0/go.mod h1:STckp+ISIX8hZLjrqAeVduY0gWCT9IjLuqbuNXdaHfM=
-github.com/shunjiecloud-proto/account v0.0.0-20200604145954-77c2493c36ea h1:cql+7+00MWIqcH+fH1MUHS/2gS9fX5Qa35HuHhVILB4=
-github.com/shunjiecloud-proto/account v0.0.0-20200604145954-77c2493c36ea/go.mod h1:fmB76CyxTbnbvyCQfZCLXbxblcdbwq+FngbZTHIqvAY=
+github.com/shunjiecloud-proto/account v0.0.0-20200605190946-65e124a765a4 h1:o2JW6iwVd0vgKS7vEPQpzilscIiPBsytYuGyscFde04=
+github.com/shunjiecloud-proto/account v0.0.0-20200605190946-65e124a765a4/go.mod h1:fmB76CyxTbnbvyCQfZCLXbxblcdbwq+FngbZTHIqvAY=
 github.com/shunjiecloud/errors v1.0.3-0.20200427091440-d2c8251bbc81 h1:FM4BKrhCrECq1XpkKwy+3qsUxYNluWSrIhCZJZY6kKw=
 github.com/shunjiecloud/errors v1.0.3-0.20200427091440-d2c8251bbc81/go.mod h1:11oXgDJrf0RUitbjDJe+Ht/B1iq9gEJZMI9ijhgO40E=
 github.com/shunjiecloud/pkg v0.0.0-20200602063315-4f7969972c9f h1:R5kajGq8UpH++rTE9tfud1EGgkP1Hp4ydKnrU8CVt4s=
