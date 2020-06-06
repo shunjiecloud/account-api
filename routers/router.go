@@ -21,6 +21,7 @@ func InitRouter() *gin.Engine {
 	apiv1.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
 
 	apiv1.POST("users", v1.CreateUser)
+	apiv1.GET("users", v1.GetUserInfo)
 
 	return r
 }
