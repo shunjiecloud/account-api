@@ -1,0 +1,4 @@
+FROM golang:1.14.2-buster
+COPY ./account-api /shunjiecloud/account-api
+COPY ./config.json /shunjiecloud/config.json
+ENTRYPOINT ["/shunjiecloud/account-api"]
