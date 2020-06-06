@@ -1,6 +1,5 @@
 package v1
 
-/*
 import (
 	"context"
 
@@ -11,10 +10,10 @@ import (
 )
 
 type SignInRequest struct {
-	CaptchaId       string `json:"captcha_id" binding:"max=32,required"`
-	CaptchaSolution string `json:"captcha_solution" binding:"max=32,required"`
-	account         string `json:"account" binding:"required"`
-	Password        string `json:"password" binding:"required"`
+	// CaptchaId       string `json:"captcha_id" binding:"max=32,required"`
+	// CaptchaSolution string `json:"captcha_solution" binding:"max=32,required"`
+	Account  string `json:"account" binding:"required"`
+	Password string `json:"password" binding:"required"`
 }
 
 type SignInResponse struct {
@@ -40,21 +39,16 @@ func SignIn(c *gin.Context) {
 	appCtx := app.AppContext{
 		GinCtx: c,
 	}
-	var request CreateUserRequest
+	var request SignInRequest
 	err := c.ShouldBindJSON(&request)
 	if err != nil {
 		appCtx.WriteError(err)
 		return
 	}
-	//  调用srv注册用户
-	signUpResp, err := modules.ModuleContext.AccountSrvClient.SignIn(context.Background(), &proto_account.SignUpRequest{
-		Name:            request.Name,
-		Password:        request.Password,
-		Mail:            request.Mail,
-		Phone:           request.Phone,
-		Gender:          int32(request.Gender),
-		CaptchaId:       request.CaptchaId,
-		CaptchaSolution: request.CaptchaSolution,
+	//  调用srv登录用户
+	signInResp, err := modules.ModuleContext.AccountSrvClient.SignIn(context.Background(), &proto_account.SignInRequest{
+		Account:  request.Account,
+		Password: request.Password,
 	})
 	if err != nil {
 		appCtx.WriteError(err)
@@ -64,16 +58,15 @@ func SignIn(c *gin.Context) {
 	//  下发cookie
 	sess, _ := modules.ModuleContext.SessionMgr.SessionStart(c.Writer, c.Request)
 	defer sess.SessionRelease(c.Writer)
-	sess.Set("userId", signUpResp.UserId)
+	sess.Set("userId", signInResp.UserId)
 
 	//  返回
-	var ret CreateUserResponse
-	ret.UserId = signUpResp.UserId
-	ret.Name = signUpResp.Name
-	ret.Mail = signUpResp.Mail
-	ret.Phone = signUpResp.Phone
-	ret.Gender = int(signUpResp.Gender)
-	ret.Avatar = signUpResp.Avatar
+	var ret SignInResponse
+	ret.UserId = signInResp.UserId
+	ret.Name = signInResp.Name
+	ret.Mail = signInResp.Mail
+	ret.Phone = signInResp.Phone
+	ret.Gender = int(signInResp.Gender)
+	ret.Avatar = signInResp.Avatar
 	appCtx.WriteJson(200, &ret)
 }
-*/

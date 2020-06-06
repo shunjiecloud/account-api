@@ -33,6 +33,40 @@ var doc = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/account/v1/signin": {
+            "post": {
+                "description": "用户登录",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "users"
+                ],
+                "summary": "用户登录",
+                "parameters": [
+                    {
+                        "description": "密码先sha1，之后使用公钥加密，再stdBase64编码。",
+                        "name": "{object}",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/v1.SignInRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v1.SignInResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/account/v1/users": {
             "get": {
                 "description": "获取用户信息",
@@ -47,7 +81,7 @@ var doc = `{
                     {
                         "type": "integer",
                         "description": "用户id，不带userId，则获取自己的userInfo",
-                        "name": "userId",
+                        "name": "user_id",
                         "in": "query"
                     }
                 ],
@@ -145,6 +179,45 @@ var doc = `{
             }
         },
         "v1.GetUserInfoResponse": {
+            "type": "object",
+            "properties": {
+                "avatar": {
+                    "type": "string"
+                },
+                "gender": {
+                    "type": "integer"
+                },
+                "mail": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "v1.SignInRequest": {
+            "type": "object",
+            "required": [
+                "account",
+                "password"
+            ],
+            "properties": {
+                "account": {
+                    "description": "CaptchaId       string ` + "`" + `json:\"captcha_id\" binding:\"max=32,required\"` + "`" + `\nCaptchaSolution string ` + "`" + `json:\"captcha_solution\" binding:\"max=32,required\"` + "`" + `",
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "v1.SignInResponse": {
             "type": "object",
             "properties": {
                 "avatar": {

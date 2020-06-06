@@ -47,6 +47,34 @@ definitions:
       user_id:
         type: integer
     type: object
+  v1.SignInRequest:
+    properties:
+      account:
+        description: |-
+          CaptchaId       string `json:"captcha_id" binding:"max=32,required"`
+          CaptchaSolution string `json:"captcha_solution" binding:"max=32,required"`
+        type: string
+      password:
+        type: string
+    required:
+    - account
+    - password
+    type: object
+  v1.SignInResponse:
+    properties:
+      avatar:
+        type: string
+      gender:
+        type: integer
+      mail:
+        type: string
+      name:
+        type: string
+      phone:
+        type: string
+      user_id:
+        type: integer
+    type: object
 host: api.shunjiecloud.com
 info:
   contact:
@@ -61,13 +89,35 @@ info:
   title: 瞬捷云账号服务
   version: "1.0"
 paths:
+  /account/v1/signin:
+    post:
+      consumes:
+      - application/json
+      description: 用户登录
+      parameters:
+      - description: 密码先sha1，之后使用公钥加密，再stdBase64编码。
+        in: body
+        name: '{object}'
+        required: true
+        schema:
+          $ref: '#/definitions/v1.SignInRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.SignInResponse'
+      summary: 用户登录
+      tags:
+      - users
   /account/v1/users:
     get:
       description: 获取用户信息
       parameters:
       - description: 用户id，不带userId，则获取自己的userInfo
         in: query
-        name: userId
+        name: user_id
         type: integer
       produces:
       - application/json

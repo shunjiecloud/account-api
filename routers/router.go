@@ -23,5 +23,7 @@ func InitRouter() *gin.Engine {
 	apiv1.POST("users", v1.CreateUser)
 	apiv1.GET("users", v1.GetUserInfo)
 
+	apiv1.POST("signin", v1.SignIn)
+
 	return r
 }
