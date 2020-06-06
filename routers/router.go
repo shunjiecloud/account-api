@@ -17,7 +17,7 @@ func InitRouter() *gin.Engine {
 
 	apiv1 := r.Group("/account/v1/")
 
-	url := ginSwagger.URL("http://api.shunjiecloud.com/account/v1/swagger/doc.json") // The url pointing to API definition
+	url := ginSwagger.URL("https://api.shunjiecloud.com/account/v1/swagger/doc.json") // The url pointing to API definition
 	apiv1.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
 
 	apiv1.POST("users", v1.CreateUser)
