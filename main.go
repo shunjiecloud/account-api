@@ -1,8 +1,6 @@
 package main
 
 import (
-	"log"
-
 	"github.com/micro/go-micro/v2/web"
 	"github.com/shunjiecloud/account-api/modules"
 	"github.com/shunjiecloud/account-api/routers"
@@ -37,10 +35,10 @@ func main() {
 
 	//  init
 	if err := webSrv.Init(); err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 
 	if err := webSrv.Run(); err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 }
