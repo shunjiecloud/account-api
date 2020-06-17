@@ -14,6 +14,7 @@ type CreateUserRequest struct {
 	CaptchaSolution string `json:"captcha_solution" binding:"max=32"`
 	Name            string `json:"name" binding:"min=3,max=16"`
 	Password        string `json:"password"`
+	CryptoId        int64  `json:"crypto_id" binding:"required"`
 	Mail            string `json:"mail" binding:"email"`
 	Phone           string `json:"phone" binding:"len=11"`
 	Gender          int    `json:"gender" binding:"min=0,max=1"`
@@ -52,6 +53,7 @@ func CreateUser(c *gin.Context) {
 	signUpResp, err := modules.ModuleContext.AccountSrvClient.SignUp(context.Background(), &proto_account.SignUpRequest{
 		Name:            request.Name,
 		Password:        request.Password,
+		CryptoId:        request.CryptoId,
 		Mail:            request.Mail,
 		Phone:           request.Phone,
 		Gender:          int32(request.Gender),

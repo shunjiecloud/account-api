@@ -10,10 +10,11 @@ import (
 )
 
 type SignInRequest struct {
-	// CaptchaId       string `json:"captcha_id" binding:"max=32,required"`
-	// CaptchaSolution string `json:"captcha_solution" binding:"max=32,required"`
-	Account  string `json:"account" binding:"required"`
-	Password string `json:"password" binding:"required"`
+	CaptchaId       string `json:"captcha_id" binding:"max=32,required"`
+	CaptchaSolution string `json:"captcha_solution" binding:"max=32,required"`
+	Account         string `json:"account" binding:"required"`
+	Password        string `json:"password" binding:"required"`
+	CryptoId        int64  `json:"crypto_id" binding:"required"`
 }
 
 type SignInResponse struct {
@@ -47,8 +48,11 @@ func SignIn(c *gin.Context) {
 	}
 	//  调用srv登录用户
 	signInResp, err := modules.ModuleContext.AccountSrvClient.SignIn(context.Background(), &proto_account.SignInRequest{
-		Account:  request.Account,
-		Password: request.Password,
+		Account:         request.Account,
+		Password:        request.Password,
+		CaptchaId:       request.CaptchaId,
+		CaptchaSolution: request.CaptchaSolution,
+		CryptoId:        request.CryptoId,
 	})
 	if err != nil {
 		appCtx.WriteError(err)
