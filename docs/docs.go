@@ -131,12 +131,18 @@ var doc = `{
     "definitions": {
         "v1.CreateUserRequest": {
             "type": "object",
+            "required": [
+                "crypto_id"
+            ],
             "properties": {
                 "captcha_id": {
                     "type": "string"
                 },
                 "captcha_solution": {
                     "type": "string"
+                },
+                "crypto_id": {
+                    "type": "integer"
                 },
                 "gender": {
                     "type": "integer"
@@ -205,12 +211,23 @@ var doc = `{
             "type": "object",
             "required": [
                 "account",
+                "captcha_id",
+                "captcha_solution",
+                "crypto_id",
                 "password"
             ],
             "properties": {
                 "account": {
-                    "description": "CaptchaId       string ` + "`" + `json:\"captcha_id\" binding:\"max=32,required\"` + "`" + `\nCaptchaSolution string ` + "`" + `json:\"captcha_solution\" binding:\"max=32,required\"` + "`" + `",
                     "type": "string"
+                },
+                "captcha_id": {
+                    "type": "string"
+                },
+                "captcha_solution": {
+                    "type": "string"
+                },
+                "crypto_id": {
+                    "type": "integer"
                 },
                 "password": {
                     "type": "string"

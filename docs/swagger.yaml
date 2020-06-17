@@ -6,6 +6,8 @@ definitions:
         type: string
       captcha_solution:
         type: string
+      crypto_id:
+        type: integer
       gender:
         type: integer
       mail:
@@ -16,6 +18,8 @@ definitions:
         type: string
       phone:
         type: string
+    required:
+    - crypto_id
     type: object
   v1.CreateUserResponse:
     properties:
@@ -50,14 +54,20 @@ definitions:
   v1.SignInRequest:
     properties:
       account:
-        description: |-
-          CaptchaId       string `json:"captcha_id" binding:"max=32,required"`
-          CaptchaSolution string `json:"captcha_solution" binding:"max=32,required"`
         type: string
+      captcha_id:
+        type: string
+      captcha_solution:
+        type: string
+      crypto_id:
+        type: integer
       password:
         type: string
     required:
     - account
+    - captcha_id
+    - captcha_solution
+    - crypto_id
     - password
     type: object
   v1.SignInResponse:
